@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui version="4.0">
+ <class>MainWindow</class>
+ <widget class="QMainWindow" name="MainWindow">
+  <property name="geometry">
+   <rect>
+    <x>0</x>
+    <y>0</y>
+    <width>800</width>
+    <height>600</height>
+   </rect>
+  </property>
+  <property name="windowTitle">
+   <string>G2 GESLIB</string>
+  </property>
+  <widget class="QWidget" name="centralwidget"/>
+  <widget class="QMenuBar" name="menubar">
+   <property name="geometry">
+    <rect>
+     <x>0</x>
+     <y>0</y>
+     <width>800</width>
+     <height>21</height>
+    </rect>
+   </property>
+   <widget class="QMenu" name="menuInterface_d_enregistrement_des_livres">
+    <property name="title">
+     <string>Fichier</string>
+    </property>
+   </widget>
+   <widget class="QMenu" name="menuDonn_e_de_base">
+    <property name="title">
+     <string>Donnée de base</string>
+    </property>
+    <addaction name="separator"/>
+    <addaction name="actionEnregistrer_Livre"/>
+    <addaction name="separator"/>
+    <addaction name="actionEnregister_un_client"/>
+    <addaction name="separator"/>
+   </widget>
+   <addaction name="menuInterface_d_enregistrement_des_livres"/>
+   <addaction name="menuDonn_e_de_base"/>
+  </widget>
+  <widget class="QStatusBar" name="statusbar"/>
+  <action name="actionEnregistrer_Livre">
+   <property name="checkable">
+    <bool>false</bool>
+   </property>
+   <property name="checked">
+    <bool>false</bool>
+   </property>
+   <property name="text">
+    <string>Enregistrer Livre</string>
+   </property>
+  </action>
+  <action name="actionEnregister_un_client">
+   <property name="text">
+    <string>Enregister un client</string>
+   </property>
+   <property name="iconText">
+    <string>Enregister client</string>
+   </property>
+   <property name="toolTip">
+    <string>Enregister client</string>
+   </property>
+  </action>
+ </widget>
+ <resources/>
+ <connections/>
+</ui>
