@@ -7,10 +7,18 @@
 #include "utils.h"
 #include "QString"
 #include <QDebug>
+#include <QStandardPaths>
 
 static bool is_connexion_db(){
     QSqlDatabase database = QSqlDatabase::addDatabase("QSQLITE"); //Spécification de la DB
-    database.setDatabaseName("library.db"); //Créer ou appeler la DB sqlite3 sous le nom "library.db"
+
+    //QString databasePath = "E:/ecole/C++/ProjectG2/maj1/maj1/library.db";
+    //QString databasePath = QStandardPaths::writableLocation(QStandardPaths::AppDataLocation) + "/library.db";
+    QString databasePath = QStandardPaths::writableLocation(QStandardPaths::HomeLocation) + "/library.db"; //Home location
+    qDebug() << "Database file location:" << databasePath;
+    database.setDatabaseName(databasePath);
+
+    //database.setDatabaseName("library.db"); //Créer ou appeler la DB sqlite3 sous le nom "library.db"
 
     if (!database.open()) {
         //Appel de la fonction Box personnalisée en passant le message
