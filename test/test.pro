@@ -15,10 +15,13 @@ SOURCES += \
     mainwindow.cpp
 
 HEADERS += \
+    Livre.h \
     connexion_sqlite3.h \
     connexionmysql.h \
     enregistrelivres.h \
-    mainwindow.h
+    mainwindow.h \
+    query_livre.h \
+    utils.h
 
 FORMS += \
     connexionbasededonnee.ui \

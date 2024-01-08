@@ -14,6 +14,8 @@
 //nous appellons la bibliothèque pour utiliser les string
 #include "QString"
 
+#include "query_livre.h"
+
 enregistrelivres::enregistrelivres(QWidget *parent)
     : QWidget(parent)
     , ui(new Ui::enregistrelivres)
@@ -32,23 +34,29 @@ void enregistrelivres::on_BTNValider_clicked()
     //déclaration de ka variable de type string
     QString valeursaisie;
 
-    //nous allons prendre les valeurs saisies par l'utilisateur dans chaque champs de saisie
-    valeursaisie = "Vous venez de saisir code du livre: "+ui->SAICodeduLivre->text()+
-                   ", nom du livre: "+ui->SAINomduLivre->text()+
-                   ", Auteur du livre: "+ui->SAIAuteurduLivre->text()+
-                   ", Date de parution: "+ui->SAIdateParition->text();
+    if(ui->SAIQuantiteLivre->value() < 1){
+        valeursaisie = "La quantité minimum du livre doit être supérieure à 0";
+    }else{
+        //nous allons prendre les valeurs saisies par l'utilisateur dans chaque champs de saisie
+        valeursaisie = "Voici vos informations saisies: "
+                       "\ncode du livre: "+ui->SAICodeduLivre->text()+
+                       "\nnom du livre: "+ui->SAINomduLivre->text()+
+                       "\nAuteur du livre: "+ui->SAIAuteurduLivre->text()+
+                        "\nQuantité du livre: "+ui->SAIQuantiteLivre->text()+
+                       "\nDate de parution: "+ui->SAIdateParition->text();
+        Livre livre = Livre(
+                    ui->SAICodeduLivre->text(), ui->SAINomduLivre->text(),
+                    ui->SAIAuteurduLivre->text(), ui->SAIdateParition->text(),
+                    ui->SAIQuantiteLivre->value()
+        );
+        save_livre((livre)); //Enregistrer le livre dans la base de données
+    }
 
     //nous allons afficher dans le label "infolivre" les valeurs saisies par l'utilisateur
     ui->infolivre->setText(valeursaisie);
 
-    //nous allons aussi afficher ce que l'utilisateur à saisie dans une boite de dialogue
-    QMessageBox info;
-    info.setText(valeursaisie+" PAR LA GRACE DE PAPA AU CIEL ON VA Y ARRIVER COURAGE !!!");
-    info.setIcon(QMessageBox::Information);
-    info.setStandardButtons(QMessageBox::Ok);
-
-    // Affichage de la boîte de dialogue
-    info.exec();
+    //Appel de la fonction Box personnalisée en passant le message
+    box_message(valeursaisie+"\n\nPAR LA GRACE DE PAPA AU CIEL ON VA Y ARRIVER COURAGE !!!");
 
 }
 
