@@ -17,6 +17,7 @@
 #include <QtWidgets/QLineEdit>
 #include <QtWidgets/QPushButton>
 #include <QtWidgets/QTableWidget>
+#include <QtWidgets/QTextBrowser>
 #include <QtWidgets/QWidget>
 
 QT_BEGIN_NAMESPACE
@@ -24,62 +25,76 @@ QT_BEGIN_NAMESPACE
 class Ui_enregistrelivres
 {
 public:
-    QDateEdit *dateParition;
-    QLineEdit *CodeduLivre;
+    QDateEdit *SAIdateParition;
+    QLineEdit *SAICodeduLivre;
     QLabel *labelauteur;
     QLabel *labeldateparution;
-    QTableWidget *tableWidget;
+    QTableWidget *TableLivres;
     QLabel *labelcodelivre;
     QLabel *labelnomlivre;
-    QLineEdit *NomduLivre;
+    QLineEdit *SAINomduLivre;
     QPushButton *BTNValider;
-    QLineEdit *NomduLivre_2;
+    QLineEdit *SAIAuteurduLivre;
+    QPushButton *BTNNouveau;
+    QTextBrowser *infolivre;
 
     void setupUi(QWidget *enregistrelivres)
     {
         if (enregistrelivres->objectName().isEmpty())
             enregistrelivres->setObjectName(QString::fromUtf8("enregistrelivres"));
         enregistrelivres->resize(779, 425);
-        dateParition = new QDateEdit(enregistrelivres);
-        dateParition->setObjectName(QString::fromUtf8("dateParition"));
-        dateParition->setGeometry(QRect(80, 100, 110, 22));
-        CodeduLivre = new QLineEdit(enregistrelivres);
-        CodeduLivre->setObjectName(QString::fromUtf8("CodeduLivre"));
-        CodeduLivre->setGeometry(QRect(80, 10, 361, 20));
+        enregistrelivres->setFocusPolicy(Qt::TabFocus);
+        SAIdateParition = new QDateEdit(enregistrelivres);
+        SAIdateParition->setObjectName(QString::fromUtf8("SAIdateParition"));
+        SAIdateParition->setGeometry(QRect(80, 100, 110, 22));
+        SAIdateParition->setCursor(QCursor(Qt::ArrowCursor));
+        SAIdateParition->setFocusPolicy(Qt::ClickFocus);
+        SAICodeduLivre = new QLineEdit(enregistrelivres);
+        SAICodeduLivre->setObjectName(QString::fromUtf8("SAICodeduLivre"));
+        SAICodeduLivre->setGeometry(QRect(80, 10, 361, 20));
+        SAICodeduLivre->setFocusPolicy(Qt::WheelFocus);
         labelauteur = new QLabel(enregistrelivres);
         labelauteur->setObjectName(QString::fromUtf8("labelauteur"));
         labelauteur->setGeometry(QRect(10, 70, 71, 21));
         labeldateparution = new QLabel(enregistrelivres);
         labeldateparution->setObjectName(QString::fromUtf8("labeldateparution"));
         labeldateparution->setGeometry(QRect(10, 100, 71, 21));
-        tableWidget = new QTableWidget(enregistrelivres);
-        if (tableWidget->columnCount() < 4)
-            tableWidget->setColumnCount(4);
+        TableLivres = new QTableWidget(enregistrelivres);
+        if (TableLivres->columnCount() < 4)
+            TableLivres->setColumnCount(4);
         QTableWidgetItem *__qtablewidgetitem = new QTableWidgetItem();
-        tableWidget->setHorizontalHeaderItem(0, __qtablewidgetitem);
+        TableLivres->setHorizontalHeaderItem(0, __qtablewidgetitem);
         QTableWidgetItem *__qtablewidgetitem1 = new QTableWidgetItem();
-        tableWidget->setHorizontalHeaderItem(1, __qtablewidgetitem1);
+        TableLivres->setHorizontalHeaderItem(1, __qtablewidgetitem1);
         QTableWidgetItem *__qtablewidgetitem2 = new QTableWidgetItem();
-        tableWidget->setHorizontalHeaderItem(2, __qtablewidgetitem2);
+        TableLivres->setHorizontalHeaderItem(2, __qtablewidgetitem2);
         QTableWidgetItem *__qtablewidgetitem3 = new QTableWidgetItem();
-        tableWidget->setHorizontalHeaderItem(3, __qtablewidgetitem3);
-        tableWidget->setObjectName(QString::fromUtf8("tableWidget"));
-        tableWidget->setGeometry(QRect(10, 150, 731, 261));
+        TableLivres->setHorizontalHeaderItem(3, __qtablewidgetitem3);
+        TableLivres->setObjectName(QString::fromUtf8("TableLivres"));
+        TableLivres->setGeometry(QRect(10, 150, 761, 261));
         labelcodelivre = new QLabel(enregistrelivres);
         labelcodelivre->setObjectName(QString::fromUtf8("labelcodelivre"));
         labelcodelivre->setGeometry(QRect(10, 10, 71, 21));
         labelnomlivre = new QLabel(enregistrelivres);
         labelnomlivre->setObjectName(QString::fromUtf8("labelnomlivre"));
         labelnomlivre->setGeometry(QRect(10, 40, 71, 21));
-        NomduLivre = new QLineEdit(enregistrelivres);
-        NomduLivre->setObjectName(QString::fromUtf8("NomduLivre"));
-        NomduLivre->setGeometry(QRect(80, 40, 361, 20));
+        SAINomduLivre = new QLineEdit(enregistrelivres);
+        SAINomduLivre->setObjectName(QString::fromUtf8("SAINomduLivre"));
+        SAINomduLivre->setGeometry(QRect(80, 40, 361, 20));
+        SAINomduLivre->setFocusPolicy(Qt::ClickFocus);
         BTNValider = new QPushButton(enregistrelivres);
         BTNValider->setObjectName(QString::fromUtf8("BTNValider"));
-        BTNValider->setGeometry(QRect(370, 100, 75, 23));
-        NomduLivre_2 = new QLineEdit(enregistrelivres);
-        NomduLivre_2->setObjectName(QString::fromUtf8("NomduLivre_2"));
-        NomduLivre_2->setGeometry(QRect(80, 70, 361, 20));
+        BTNValider->setGeometry(QRect(450, 40, 75, 23));
+        SAIAuteurduLivre = new QLineEdit(enregistrelivres);
+        SAIAuteurduLivre->setObjectName(QString::fromUtf8("SAIAuteurduLivre"));
+        SAIAuteurduLivre->setGeometry(QRect(80, 70, 361, 20));
+        SAIAuteurduLivre->setFocusPolicy(Qt::ClickFocus);
+        BTNNouveau = new QPushButton(enregistrelivres);
+        BTNNouveau->setObjectName(QString::fromUtf8("BTNNouveau"));
+        BTNNouveau->setGeometry(QRect(450, 10, 75, 23));
+        infolivre = new QTextBrowser(enregistrelivres);
+        infolivre->setObjectName(QString::fromUtf8("infolivre"));
+        infolivre->setGeometry(QRect(530, 0, 241, 141));
 
         retranslateUi(enregistrelivres);
 
@@ -91,17 +106,18 @@ public:
         enregistrelivres->setWindowTitle(QApplication::translate("enregistrelivres", "Interface d'enregistrement des livres", nullptr));
         labelauteur->setText(QApplication::translate("enregistrelivres", "Auteur", nullptr));
         labeldateparution->setText(QApplication::translate("enregistrelivres", "Date Parution", nullptr));
-        QTableWidgetItem *___qtablewidgetitem = tableWidget->horizontalHeaderItem(0);
+        QTableWidgetItem *___qtablewidgetitem = TableLivres->horizontalHeaderItem(0);
         ___qtablewidgetitem->setText(QApplication::translate("enregistrelivres", "Code Livre", nullptr));
-        QTableWidgetItem *___qtablewidgetitem1 = tableWidget->horizontalHeaderItem(1);
+        QTableWidgetItem *___qtablewidgetitem1 = TableLivres->horizontalHeaderItem(1);
         ___qtablewidgetitem1->setText(QApplication::translate("enregistrelivres", "Nom Livre", nullptr));
-        QTableWidgetItem *___qtablewidgetitem2 = tableWidget->horizontalHeaderItem(2);
+        QTableWidgetItem *___qtablewidgetitem2 = TableLivres->horizontalHeaderItem(2);
         ___qtablewidgetitem2->setText(QApplication::translate("enregistrelivres", "Auteur", nullptr));
-        QTableWidgetItem *___qtablewidgetitem3 = tableWidget->horizontalHeaderItem(3);
+        QTableWidgetItem *___qtablewidgetitem3 = TableLivres->horizontalHeaderItem(3);
         ___qtablewidgetitem3->setText(QApplication::translate("enregistrelivres", "Date Parution", nullptr));
         labelcodelivre->setText(QApplication::translate("enregistrelivres", "Code Livre", nullptr));
         labelnomlivre->setText(QApplication::translate("enregistrelivres", "Nom du Livre", nullptr));
         BTNValider->setText(QApplication::translate("enregistrelivres", "Valider", nullptr));
+        BTNNouveau->setText(QApplication::translate("enregistrelivres", "Nouveau", nullptr));
     } // retranslateUi
 
 };

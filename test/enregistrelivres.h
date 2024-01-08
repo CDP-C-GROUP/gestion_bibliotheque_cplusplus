@@ -18,6 +18,10 @@ public:
 private slots:
     void on_BTNValider_clicked();
 
+    void on_BTNNouveau_clicked();
+
+    void on_enregistrelivres_windowTitleChanged(const QString &title);
+
 private:
     Ui::enregistrelivres *ui;
 };

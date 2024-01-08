@@ -10,11 +10,9 @@
 #define UI_MAINWINDOW_H
 
 #include <QtCore/QVariant>
-#include <QtWidgets/QAction>
 #include <QtWidgets/QApplication>
 #include <QtWidgets/QMainWindow>
-#include <QtWidgets/QMenu>
-#include <QtWidgets/QMenuBar>
+#include <QtWidgets/QPushButton>
 #include <QtWidgets/QStatusBar>
 #include <QtWidgets/QWidget>
 
@@ -23,12 +21,10 @@ QT_BEGIN_NAMESPACE
 class Ui_MainWindow
 {
 public:
-    QAction *actionEnregistrer_Livre;
-    QAction *actionEnregister_un_client;
     QWidget *centralwidget;
-    QMenuBar *menubar;
-    QMenu *menuInterface_d_enregistrement_des_livres;
-    QMenu *menuDonn_e_de_base;
+    QPushButton *PBEnregistrelivre;
+    QPushButton *PBEnregistreclient;
+    QPushButton *PBEmprunt;
     QStatusBar *statusbar;
 
     void setupUi(QMainWindow *MainWindow)
@@ -36,34 +32,27 @@ public:
         if (MainWindow->objectName().isEmpty())
             MainWindow->setObjectName(QString::fromUtf8("MainWindow"));
         MainWindow->resize(800, 600);
-        actionEnregistrer_Livre = new QAction(MainWindow);
-        actionEnregistrer_Livre->setObjectName(QString::fromUtf8("actionEnregistrer_Livre"));
-        actionEnregistrer_Livre->setCheckable(false);
-        actionEnregistrer_Livre->setChecked(false);
-        actionEnregister_un_client = new QAction(MainWindow);
-        actionEnregister_un_client->setObjectName(QString::fromUtf8("actionEnregister_un_client"));
         centralwidget = new QWidget(MainWindow);
         centralwidget->setObjectName(QString::fromUtf8("centralwidget"));
+        PBEnregistrelivre = new QPushButton(centralwidget);
+        PBEnregistrelivre->setObjectName(QString::fromUtf8("PBEnregistrelivre"));
+        PBEnregistrelivre->setGeometry(QRect(20, 10, 131, 91));
+        QFont font;
+        font.setBold(true);
+        font.setWeight(75);
+        PBEnregistrelivre->setFont(font);
+        PBEnregistreclient = new QPushButton(centralwidget);
+        PBEnregistreclient->setObjectName(QString::fromUtf8("PBEnregistreclient"));
+        PBEnregistreclient->setGeometry(QRect(20, 110, 131, 91));
+        PBEnregistreclient->setFont(font);
+        PBEmprunt = new QPushButton(centralwidget);
+        PBEmprunt->setObjectName(QString::fromUtf8("PBEmprunt"));
+        PBEmprunt->setGeometry(QRect(20, 210, 131, 91));
+        PBEmprunt->setFont(font);
         MainWindow->setCentralWidget(centralwidget);
-        menubar = new QMenuBar(MainWindow);
-        menubar->setObjectName(QString::fromUtf8("menubar"));
-        menubar->setGeometry(QRect(0, 0, 800, 21));
-        menuInterface_d_enregistrement_des_livres = new QMenu(menubar);
-        menuInterface_d_enregistrement_des_livres->setObjectName(QString::fromUtf8("menuInterface_d_enregistrement_des_livres"));
-        menuDonn_e_de_base = new QMenu(menubar);
-        menuDonn_e_de_base->setObjectName(QString::fromUtf8("menuDonn_e_de_base"));
-        MainWindow->setMenuBar(menubar);
         statusbar = new QStatusBar(MainWindow);
         statusbar->setObjectName(QString::fromUtf8("statusbar"));
         MainWindow->setStatusBar(statusbar);
-
-        menubar->addAction(menuInterface_d_enregistrement_des_livres->menuAction());
-        menubar->addAction(menuDonn_e_de_base->menuAction());
-        menuDonn_e_de_base->addSeparator();
-        menuDonn_e_de_base->addAction(actionEnregistrer_Livre);
-        menuDonn_e_de_base->addSeparator();
-        menuDonn_e_de_base->addAction(actionEnregister_un_client);
-        menuDonn_e_de_base->addSeparator();
 
         retranslateUi(MainWindow);
 
@@ -72,15 +61,10 @@ public:
 
     void retranslateUi(QMainWindow *MainWindow)
     {
-        MainWindow->setWindowTitle(QApplication::translate("MainWindow", "G2 GESLIB", nullptr));
-        actionEnregistrer_Livre->setText(QApplication::translate("MainWindow", "Enregistrer Livre", nullptr));
-        actionEnregister_un_client->setText(QApplication::translate("MainWindow", "Enregister un client", nullptr));
-        actionEnregister_un_client->setIconText(QApplication::translate("MainWindow", "Enregister client", nullptr));
-#ifndef QT_NO_TOOLTIP
-        actionEnregister_un_client->setToolTip(QApplication::translate("MainWindow", "Enregister client", nullptr));
-#endif // QT_NO_TOOLTIP
-        menuInterface_d_enregistrement_des_livres->setTitle(QApplication::translate("MainWindow", "Fichier", nullptr));
-        menuDonn_e_de_base->setTitle(QApplication::translate("MainWindow", "Donn\303\251e de base", nullptr));
+        MainWindow->setWindowTitle(QApplication::translate("MainWindow", "Menu Principal [ Logiciel de gestion de la biblioth\303\250que ]", nullptr));
+        PBEnregistrelivre->setText(QApplication::translate("MainWindow", "Enregistrer les livres", nullptr));
+        PBEnregistreclient->setText(QApplication::translate("MainWindow", "Enregistrer les clients", nullptr));
+        PBEmprunt->setText(QApplication::translate("MainWindow", "Effectuer un emprunt", nullptr));
     } // retranslateUi
 
 };

@@ -11,59 +11,68 @@
    </rect>
   </property>
   <property name="windowTitle">
-   <string>G2 GESLIB</string>
+   <string>Menu Principal [ Logiciel de gestion de la bibliothèque ]</string>
   </property>
-  <widget class="QWidget" name="centralwidget"/>
-  <widget class="QMenuBar" name="menubar">
-   <property name="geometry">
-    <rect>
-     <x>0</x>
-     <y>0</y>
-     <width>800</width>
-     <height>21</height>
-    </rect>
-   </property>
-   <widget class="QMenu" name="menuInterface_d_enregistrement_des_livres">
-    <property name="title">
-     <string>Fichier</string>
+  <widget class="QWidget" name="centralwidget">
+   <widget class="QPushButton" name="PBEnregistrelivre">
+    <property name="geometry">
+     <rect>
+      <x>20</x>
+      <y>10</y>
+      <width>131</width>
+      <height>91</height>
+     </rect>
+    </property>
+    <property name="font">
+     <font>
+      <weight>75</weight>
+      <bold>true</bold>
+     </font>
+    </property>
+    <property name="text">
+     <string>Enregistrer les livres</string>
     </property>
    </widget>
-   <widget class="QMenu" name="menuDonn_e_de_base">
-    <property name="title">
-     <string>Donnée de base</string>
+   <widget class="QPushButton" name="PBEnregistreclient">
+    <property name="geometry">
+     <rect>
+      <x>20</x>
+      <y>110</y>
+      <width>131</width>
+      <height>91</height>
+     </rect>
     </property>
-    <addaction name="separator"/>
-    <addaction name="actionEnregistrer_Livre"/>
-    <addaction name="separator"/>
-    <addaction name="actionEnregister_un_client"/>
-    <addaction name="separator"/>
+    <property name="font">
+     <font>
+      <weight>75</weight>
+      <bold>true</bold>
+     </font>
+    </property>
+    <property name="text">
+     <string>Enregistrer les clients</string>
+    </property>
    </widget>
-   <addaction name="menuInterface_d_enregistrement_des_livres"/>
-   <addaction name="menuDonn_e_de_base"/>
+   <widget class="QPushButton" name="PBEmprunt">
+    <property name="geometry">
+     <rect>
+      <x>20</x>
+      <y>210</y>
+      <width>131</width>
+      <height>91</height>
+     </rect>
+    </property>
+    <property name="font">
+     <font>
+      <weight>75</weight>
+      <bold>true</bold>
+     </font>
+    </property>
+    <property name="text">
+     <string>Effectuer un emprunt</string>
+    </property>
+   </widget>
   </widget>
   <widget class="QStatusBar" name="statusbar"/>
-  <action name="actionEnregistrer_Livre">
-   <property name="checkable">
-    <bool>false</bool>
-   </property>
-   <property name="checked">
-    <bool>false</bool>
-   </property>
-   <property name="text">
-    <string>Enregistrer Livre</string>
-   </property>
-  </action>
-  <action name="actionEnregister_un_client">
-   <property name="text">
-    <string>Enregister un client</string>
-   </property>
-   <property name="iconText">
-    <string>Enregister client</string>
-   </property>
-   <property name="toolTip">
-    <string>Enregister client</string>
-   </property>
-  </action>
  </widget>
  <resources/>
  <connections/>

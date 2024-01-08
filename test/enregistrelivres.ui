@@ -10,10 +10,13 @@
     <height>425</height>
    </rect>
   </property>
+  <property name="focusPolicy">
+   <enum>Qt::TabFocus</enum>
+  </property>
   <property name="windowTitle">
    <string>Interface d'enregistrement des livres</string>
   </property>
-  <widget class="QDateEdit" name="dateParition">
+  <widget class="QDateEdit" name="SAIdateParition">
    <property name="geometry">
     <rect>
      <x>80</x>
@@ -22,8 +25,14 @@
      <height>22</height>
     </rect>
    </property>
+   <property name="cursor">
+    <cursorShape>ArrowCursor</cursorShape>
+   </property>
+   <property name="focusPolicy">
+    <enum>Qt::ClickFocus</enum>
+   </property>
   </widget>
-  <widget class="QLineEdit" name="CodeduLivre">
+  <widget class="QLineEdit" name="SAICodeduLivre">
    <property name="geometry">
     <rect>
      <x>80</x>
@@ -31,6 +40,9 @@
      <width>361</width>
      <height>20</height>
     </rect>
+   </property>
+   <property name="focusPolicy">
+    <enum>Qt::WheelFocus</enum>
    </property>
   </widget>
   <widget class="QLabel" name="labelauteur">
@@ -59,12 +71,12 @@
     <string>Date Parution</string>
    </property>
   </widget>
-  <widget class="QTableWidget" name="tableWidget">
+  <widget class="QTableWidget" name="TableLivres">
    <property name="geometry">
     <rect>
      <x>10</x>
      <y>150</y>
-     <width>731</width>
+     <width>761</width>
      <height>261</height>
     </rect>
    </property>
@@ -115,7 +127,7 @@
     <string>Nom du Livre</string>
    </property>
   </widget>
-  <widget class="QLineEdit" name="NomduLivre">
+  <widget class="QLineEdit" name="SAINomduLivre">
    <property name="geometry">
     <rect>
      <x>80</x>
@@ -124,12 +136,15 @@
      <height>20</height>
     </rect>
    </property>
+   <property name="focusPolicy">
+    <enum>Qt::ClickFocus</enum>
+   </property>
   </widget>
   <widget class="QPushButton" name="BTNValider">
    <property name="geometry">
     <rect>
-     <x>370</x>
-     <y>100</y>
+     <x>450</x>
+     <y>40</y>
      <width>75</width>
      <height>23</height>
     </rect>
@@ -138,13 +153,39 @@
     <string>Valider</string>
    </property>
   </widget>
-  <widget class="QLineEdit" name="NomduLivre_2">
+  <widget class="QLineEdit" name="SAIAuteurduLivre">
    <property name="geometry">
     <rect>
      <x>80</x>
      <y>70</y>
      <width>361</width>
      <height>20</height>
+    </rect>
+   </property>
+   <property name="focusPolicy">
+    <enum>Qt::ClickFocus</enum>
+   </property>
+  </widget>
+  <widget class="QPushButton" name="BTNNouveau">
+   <property name="geometry">
+    <rect>
+     <x>450</x>
+     <y>10</y>
+     <width>75</width>
+     <height>23</height>
+    </rect>
+   </property>
+   <property name="text">
+    <string>Nouveau</string>
+   </property>
+  </widget>
+  <widget class="QTextBrowser" name="infolivre">
+   <property name="geometry">
+    <rect>
+     <x>530</x>
+     <y>0</y>
+     <width>241</width>
+     <height>141</height>
     </rect>
    </property>
   </widget>

@@ -22,6 +22,7 @@ HEADERS += \
 
 FORMS += \
     connexionbasededonnee.ui \
+    dialog.ui \
     enregistreclient.ui \
     enregistrelivres.ui \
     mainwindow.ui
