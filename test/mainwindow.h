@@ -21,6 +21,8 @@ private slots:
 
     void on_PBEnregistrelivre_clicked();
 
+    void on_PBEnregistreclient_clicked();
+
 private:
     Ui::MainWindow *ui;
     //créer un pointeur sur la tête (.h) de notre fenêtre d'enregistrement des livres
