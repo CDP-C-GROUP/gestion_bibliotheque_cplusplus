@@ -15,17 +15,22 @@ SOURCES += \
     mainwindow.cpp
 
 HEADERS += \
+    ClientClass.h \
+    Emprunt.h \
     Livre.h \
     connexion_sqlite3.h \
     connexionmysql.h \
     enregistrelivres.h \
     mainwindow.h \
+    query_client.h \
+    query_emprunt.h \
     query_livre.h \
     utils.h
 
 FORMS += \
     connexionbasededonnee.ui \
     dialog.ui \
+    enregistreEmprunt.ui \
     enregistreclient.ui \
     enregistrelivres.ui \
     mainwindow.ui
