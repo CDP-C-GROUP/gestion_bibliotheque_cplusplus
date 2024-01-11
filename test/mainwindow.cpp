@@ -10,7 +10,7 @@ MainWindow::MainWindow(QWidget *parent)
     ui->setupUi(this);
     //créer une instance de notre pointeur
     ptrenregistrelivre = new enregistrelivres();
-    ptrenregistrelivre = new enregistreclients();
+    ptrenregistreclient = new enregistreclients();
 }
 
 MainWindow::~MainWindow()

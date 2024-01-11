@@ -1,7 +1,7 @@
 
 //nous allons importer l'entête de notre fenêtre d'enregsitrement des clients
 #include "enregistreclients.h"
-
+#include "ui_enregistreclients.h"
 //nous appellons ici la fenêtre d'enregistrement des clients pour pouvoir avoir accès aux champs de saisie
 
 
@@ -21,6 +21,8 @@ enregistreclients::enregistreclients(QWidget *parent)
     , ui(new Ui::enregistreclients)
 {
     ui->setupUi(this);
+    //nous allons afficher la liste des clients
+    enregistreclients::tableaffichelisteclient();
 }
 
 enregistreclients::~enregistreclients()
@@ -47,6 +49,9 @@ void enregistreclients::on_BTNValider_clicked()
                ui->SAITelephone->text()
             );
         save_client((client)); //Enregistrer le client dans la base de données
+
+        //afficher la liste des livres dans la table
+        tableaffichelisteclient();
 
 
     //nous allons afficher dans le label "infoclient" les valeurs saisies par l'utilisateur
@@ -82,3 +87,32 @@ void enregistreclients::on_enregistreclients_windowTitleChanged(const QString &t
 }
 
 
+//implémentation de la procédure qui permet d'afficher la liste des clients dans une table
+void enregistreclients::tableaffichelisteclient(){
+
+    //nous initialisons le nombre de ligne à 0
+    int row(0);
+
+    QList<Client> clients = get_all_clients();
+
+    //nous allons initialiser le modèle de table de client que nous avons déclarer dans le .h
+    //notre modèle de table doit avoir exactement le total des attributs de la table client comme nbre de colonnes
+    //le totale des enregistrements comme nombre de lignes
+    modeleTableClient = new QStandardItemModel(clients.length(),3);
+
+    for (Client client : clients) {
+        modeleTableClient->setItem(row,0, new QStandardItem(client.nom));
+        modeleTableClient->setItem(row,1, new QStandardItem(client.prenom));
+        modeleTableClient->setItem(row,2, new QStandardItem(client.tel));
+        row++;
+    }
+
+    //nous allons donc ajouter à notre modèle, les libelles des colonnes de notre table client
+    modeleTableClient->setHeaderData(0,Qt::Horizontal,"Nom");
+    modeleTableClient->setHeaderData(1,Qt::Horizontal,"Prénom");
+    modeleTableClient->setHeaderData(2,Qt::Horizontal,"Téléphone");
+
+     //affecter notre modèle à la tableview
+     ui->tableViewClient->setModel(modeleTableClient);
+
+}

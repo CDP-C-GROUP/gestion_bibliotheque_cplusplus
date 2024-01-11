@@ -39,13 +39,15 @@ QList<Livre> get_all_livres(){
     if (is_connexion_db()) {
         QSqlQuery query("SELECT * FROM livre");
         while (query.next()) {
+            int id = query.value("id").toString().toInt();
             QString code = query.value("code").toString();
             QString nom = query.value("nom").toString();
             QString auteur = query.value("auteur").toString();
             QString date_parution = query.value("date_parution").toString();
-            int quantite = query.value("quantite").toInt();
+            QString quantite = query.value("quantite").toString();
 
             Livre livre = Livre(code, nom, auteur, date_parution, quantite);
+            livre.id = id;
             livres.append(livre);
         }
 
@@ -63,13 +65,15 @@ QList<Livre> get_like_livres_by_columns(QString txt){
         query.bindValue(":auteur", txt);
         query.bindValue(":date_parution", txt);
         while (query.next()) {
+            int id = query.value("id").toString().toInt();
             QString code = query.value("code").toString();
             QString nom = query.value("nom").toString();
             QString auteur = query.value("auteur").toString();
             QString date_parution = query.value("date_parution").toString();
-            int quantite = query.value("quantite").toInt();
+            QString quantite = query.value("quantite").toString();
 
             Livre livre(code, nom, auteur, date_parution, quantite);
+            livre.id = id;
             livres.append(livre);
         }
 
@@ -83,13 +87,38 @@ Livre get_livre_by_code(QString code){
         QSqlQuery query("SELECT * FROM livre WHERE code = :code");
         query.bindValue(":code", code);
         if (query.exec() && query.next()) {
+            int id = query.value("id").toString().toInt();
             QString code = query.value("code").toString();
             QString nom = query.value("nom").toString();
             QString auteur = query.value("auteur").toString();
             QString date_parution = query.value("date_parution").toString();
-            int quantite = query.value("quantite").toInt();
+            QString quantite = query.value("quantite").toString();
 
-            return Livre(code, nom, auteur, date_parution, quantite);
+            Livre livre = Livre(code, nom, auteur, date_parution, quantite);
+            livre.id = id;
+            return livre;
+        }
+
+    }
+    return livre;
+}
+
+Livre get_livre_by_id(int id){
+    Livre livre = Livre("", "", "", "", 0);
+    if (is_connexion_db()) {
+        QSqlQuery query("SELECT * FROM livre WHERE id = :id");
+        query.bindValue(":id", id);
+        if (query.exec() && query.next()) {
+            int id = query.value("id").toString().toInt();
+            QString code = query.value("code").toString();
+            QString nom = query.value("nom").toString();
+            QString auteur = query.value("auteur").toString();
+            QString date_parution = query.value("date_parution").toString();
+            QString quantite = query.value("quantite").toString();
+
+            Livre livre = Livre(code, nom, auteur, date_parution, quantite);
+            livre.id = id;
+            return livre;
         }
 
     }
@@ -103,4 +132,29 @@ bool delete_livre_by_code(QString code){
     query.bindValue(":code", code);
 
     return query.exec();
+}
+
+bool delete_livre_by_id(int code){
+    QSqlQuery query;
+    query.prepare("DELETE FROM livre WHERE id = :code");
+    query.bindValue(":code", code);
+
+    return query.exec();
+}
+
+//renvoyer le nombre de lignes enregistrer
+qint32 nombreligne_livre_enreg(){
+
+    //déclaration de la variable qui va contenir le nombre de ligne de livre enregistrer et initialisé à 0
+    qint32 nblivreenreg(0);
+
+    if (is_connexion_db()) {
+        //la requête qui permet d'enregistrerle nombre de ligne de livres enregistres
+        QSqlQuery query("SELECT count(*) FROM livre");
+        while (query.next()) {
+            nblivreenreg = query.value(0).toInt();
+        }
+
+    }
+    return nblivreenreg;
 }

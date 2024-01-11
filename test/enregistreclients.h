@@ -3,6 +3,7 @@
 
 
 #include <QWidget>
+#include "QStandardItemModel"
 
 QT_BEGIN_NAMESPACE
 namespace Ui { class enregistreclients; }
@@ -23,8 +24,12 @@ private slots:
 
     void on_enregistreclients_windowTitleChanged(const QString &title);
 
+    void tableaffichelisteclient();
+
 private:
     Ui::enregistreclients *ui;
+    //nous allons créer le modèle de table de client
+    QStandardItemModel *modeleTableClient;
 };
 
 

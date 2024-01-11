@@ -22,6 +22,7 @@ HEADERS += \
     client.h \
     connexion_sqlite3.h \
     connexionmysql.h \
+    enregistreclients.h \
     enregistrelivres.h \
     mainwindow.h \
     query_client.h \
@@ -33,7 +34,7 @@ FORMS += \
     connexionbasededonnee.ui \
     dialog.ui \
     enregistreEmprunt.ui \
-    enregistreclient.ui \
+    enregistreclients.ui \
     enregistrelivres.ui \
     mainwindow.ui
 

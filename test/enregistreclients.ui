@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <ui version="4.0">
- <class>enregistreclient</class>
- <widget class="QWidget" name="enregistreclient">
+ <class>enregistreclients</class>
+ <widget class="QWidget" name="enregistreclients">
   <property name="geometry">
    <rect>
     <x>0</x>
@@ -61,31 +61,6 @@
    <property name="text">
     <string>Téléphone</string>
    </property>
-  </widget>
-  <widget class="QTableWidget" name="TableClients">
-   <property name="geometry">
-    <rect>
-     <x>11</x>
-     <y>144</y>
-     <width>721</width>
-     <height>201</height>
-    </rect>
-   </property>
-   <column>
-    <property name="text">
-     <string>Nom Client</string>
-    </property>
-   </column>
-   <column>
-    <property name="text">
-     <string>Prénom Client</string>
-    </property>
-   </column>
-   <column>
-    <property name="text">
-     <string>Téléphone</string>
-    </property>
-   </column>
   </widget>
   <widget class="QLabel" name="labelprenomclient">
    <property name="geometry">
@@ -150,6 +125,19 @@
    </property>
    <property name="focusPolicy">
     <enum>Qt::ClickFocus</enum>
+   </property>
+  </widget>
+  <widget class="QTableView" name="tableViewClient">
+   <property name="geometry">
+    <rect>
+     <x>60</x>
+     <y>160</y>
+     <width>621</width>
+     <height>211</height>
+    </rect>
+   </property>
+   <property name="autoFillBackground">
+    <bool>true</bool>
    </property>
   </widget>
  </widget>

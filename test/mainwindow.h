@@ -3,6 +3,7 @@
 
 #include <QMainWindow>
 #include "enregistrelivres.h"
+#include "enregistreclients.h"
 
 QT_BEGIN_NAMESPACE
 namespace Ui { class MainWindow; }
@@ -27,6 +28,7 @@ private:
     Ui::MainWindow *ui;
     //créer un pointeur sur la tête (.h) de notre fenêtre d'enregistrement des livres
     enregistrelivres *ptrenregistrelivre;
+    enregistreclients *ptrenregistreclient;
 
 };
 #endif // MAINWINDOW_H
