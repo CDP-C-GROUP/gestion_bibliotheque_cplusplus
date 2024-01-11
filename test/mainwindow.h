@@ -4,6 +4,7 @@
 #include <QMainWindow>
 #include "enregistrelivres.h"
 #include "enregistreclients.h"
+#include "enregistreEmprunts.h"
 
 QT_BEGIN_NAMESPACE
 namespace Ui { class MainWindow; }
@@ -24,11 +25,14 @@ private slots:
 
     void on_PBEnregistreclient_clicked();
 
+    void on_PBEmprunt_clicked();
+
 private:
     Ui::MainWindow *ui;
     //créer un pointeur sur la tête (.h) de notre fenêtre d'enregistrement des livres
     enregistrelivres *ptrenregistrelivre;
     enregistreclients *ptrenregistreclient;
+    enregistreEmprunts *ptrenregistreemprunt;
 
 };
 #endif // MAINWINDOW_H

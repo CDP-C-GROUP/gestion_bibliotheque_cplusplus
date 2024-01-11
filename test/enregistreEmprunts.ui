@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <ui version="4.0">
- <class>enregistrelivres</class>
- <widget class="QWidget" name="enregistrelivres">
+ <class>enregistreEmprunts</class>
+ <widget class="QWidget" name="enregistreEmprunts">
   <property name="geometry">
    <rect>
     <x>0</x>
@@ -45,41 +45,6 @@
     <string>Date Emprunt</string>
    </property>
   </widget>
-  <widget class="QTableWidget" name="TableLivres">
-   <property name="geometry">
-    <rect>
-     <x>-10</x>
-     <y>190</y>
-     <width>771</width>
-     <height>261</height>
-    </rect>
-   </property>
-   <column>
-    <property name="text">
-     <string>ID</string>
-    </property>
-   </column>
-   <column>
-    <property name="text">
-     <string>Nom Livre</string>
-    </property>
-   </column>
-   <column>
-    <property name="text">
-     <string>Abonné</string>
-    </property>
-   </column>
-   <column>
-    <property name="text">
-     <string>Date Parution</string>
-    </property>
-   </column>
-   <column>
-    <property name="text">
-     <string>Retour possible</string>
-    </property>
-   </column>
-  </widget>
   <widget class="QLabel" name="Nomdulivre">
    <property name="geometry">
     <rect>
@@ -106,7 +71,7 @@
     <string>Abonné</string>
    </property>
   </widget>
-  <widget class="QLineEdit" name="champNomAnonne">
+  <widget class="QLineEdit" name="champNomClient">
    <property name="geometry">
     <rect>
      <x>100</x>
@@ -145,7 +110,7 @@
     <string>Nouveau</string>
    </property>
   </widget>
-  <widget class="QTextBrowser" name="infolivre">
+  <widget class="QTextBrowser" name="infoemprunt">
    <property name="geometry">
     <rect>
      <x>530</x>
@@ -186,6 +151,19 @@
      <width>110</width>
      <height>22</height>
     </rect>
+   </property>
+  </widget>
+  <widget class="QTableView" name="tableViewEmprunt">
+   <property name="geometry">
+    <rect>
+     <x>10</x>
+     <y>210</y>
+     <width>751</width>
+     <height>231</height>
+    </rect>
+   </property>
+   <property name="autoFillBackground">
+    <bool>true</bool>
    </property>
   </widget>
  </widget>

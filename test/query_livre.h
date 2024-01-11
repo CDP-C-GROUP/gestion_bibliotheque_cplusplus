@@ -8,7 +8,7 @@
 
 bool save_livre(Livre livre){
     if (is_connexion_db()) {
-        if (livre.code.isEmpty() || livre.nom.isEmpty() || livre.auteur.isEmpty() || livre.date_parution.isEmpty() || livre.quantite < 1) {
+        if (livre.code.isEmpty() || livre.nom.isEmpty() || livre.auteur.isEmpty() || livre.date_parution.isEmpty() || livre.get_quantite() < 1) {
             box_message("Veuillez renseigner tous les champs.");
             return false;
         }
@@ -19,7 +19,7 @@ bool save_livre(Livre livre){
         query.bindValue(":nom", livre.nom);
         query.bindValue(":auteur", livre.auteur);
         query.bindValue(":date_parution", livre.date_parution);
-        query.bindValue(":quantite", livre.quantite);
+        query.bindValue(":quantite", livre.get_quantite());
 
         if (query.exec()) {
             return true;

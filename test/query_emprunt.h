@@ -5,10 +5,10 @@
 #include <QDebug>
 #include "Emprunt.h"
 #include "connexion_sqlite3.h"
-#include "query_livre.h"
-#include "query_client.h"
+//#include "query_livre.h"
+//#include "query_client.h"
 
-bool save_livre(Emprunt emprunt){
+bool save_emprunt(Emprunt emprunt){
     if (is_connexion_db()) {
         if (emprunt.livre.code.isEmpty() || emprunt.client.nom.isEmpty() || emprunt.date_emprunt.isEmpty() || emprunt.date_retour.isEmpty()) {
             box_message("Veuillez renseigner tous les champs.");
@@ -39,8 +39,11 @@ QList<Emprunt> get_all_emprunts(){
     if (is_connexion_db()) {
         QSqlQuery query("SELECT * FROM emprunt");
 
-        QList<Livre> livres = get_all_livres();
-        QList<Client> clients = get_all_clients();
+        //QList<Livre> livres = get_all_livres();
+        //QList<Client> clients = get_all_clients();
+
+        Livre livre = Livre("", "", "", "", "0");
+        Client client = Client("", "", "");
 
         while (query.next()) {
             int id = query.value("id").toString().toInt();
@@ -52,14 +55,14 @@ QList<Emprunt> get_all_emprunts(){
 
 
 
-            Emprunt emprunt = Emprunt(code, nom, auteur, date_parution, quantite);
-            emprunts.append(emprunt);
+            //Emprunt emprunt = Emprunt(code, nom, auteur, date_parution, quantite);
+            //emprunts.append(emprunt);
         }
 
     }
     return emprunts;
 }
-
+/*
 QList<Livre> get_like_livres_by_columns(QString txt){
     QList<Livre> livres;
 
@@ -84,6 +87,7 @@ QList<Livre> get_like_livres_by_columns(QString txt){
     }
     return livres;
 }
+
 
 Livre get_livre_by_code(QString code){
     Livre livre = Livre("", "", "", "", 0);
@@ -113,3 +117,4 @@ bool delete_livre_by_code(QString code){
 
     return query.exec();
 }
+*/

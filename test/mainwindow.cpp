@@ -11,6 +11,7 @@ MainWindow::MainWindow(QWidget *parent)
     //créer une instance de notre pointeur
     ptrenregistrelivre = new enregistrelivres();
     ptrenregistreclient = new enregistreclients();
+    ptrenregistreemprunt = new enregistreEmprunts();
 }
 
 MainWindow::~MainWindow()
@@ -40,5 +41,14 @@ void MainWindow::on_PBEnregistreclient_clicked()
     //etant donné que notre pointeur pointe sur la fenêtre d'enregistrement des clients,
     //il nous permet de nous afficher notre fenêtre
     ptrenregistreclient->show();
+}
+
+
+void MainWindow::on_PBEmprunt_clicked()
+{
+    //etant donné que notre pointeur pointe sur la fenêtre d'enregistrement des emprunts,
+    //il nous permet de nous afficher notre fenêtre
+    ptrenregistreemprunt->show();
+
 }
 

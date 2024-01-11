@@ -10,6 +10,7 @@ CONFIG += c++11
 #DEFINES += QT_DISABLE_DEPRECATED_BEFORE=0x060000    # disables all the APIs deprecated before Qt 6.0.0
 
 SOURCES += \
+    enregistreEmprunts.cpp \
     enregistreclients.cpp \
     enregistrelivres.cpp \
     main.cpp \
@@ -22,6 +23,7 @@ HEADERS += \
     client.h \
     connexion_sqlite3.h \
     connexionmysql.h \
+    enregistreEmprunts.h \
     enregistreclients.h \
     enregistrelivres.h \
     mainwindow.h \
@@ -33,7 +35,7 @@ HEADERS += \
 FORMS += \
     connexionbasededonnee.ui \
     dialog.ui \
-    enregistreEmprunt.ui \
+    enregistreEmprunts.ui \
     enregistreclients.ui \
     enregistrelivres.ui \
     mainwindow.ui
