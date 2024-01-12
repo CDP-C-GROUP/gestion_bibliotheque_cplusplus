@@ -1,3 +1,6 @@
+#ifndef CLASS_LIVRE_QUERY_H
+#define CLASS_LIVRE_QUERY_H
+
 #include "QSqlDatabase"
 #include <QSqlQuery>
 #include <QSqlError>
@@ -158,3 +161,5 @@ qint32 nombreligne_livre_enreg(){
     }
     return nblivreenreg;
 }
+
+#endif // CLASS_LIVRE_QUERY_H

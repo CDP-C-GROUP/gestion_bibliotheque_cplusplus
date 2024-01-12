@@ -1,3 +1,6 @@
+#ifndef CLASS_LIVRE_H
+#define CLASS_LIVRE_H
+
 #include <QString>
 
 class Livre {
@@ -20,3 +23,5 @@ public:
         return quantite.toInt();
     }
 };
+
+#endif // CLASS_LIVRE_H

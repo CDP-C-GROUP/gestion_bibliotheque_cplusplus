@@ -1,3 +1,6 @@
+#ifndef CLASS_CC
+#define CLASS_CC
+
 #include <QString>
 
 class Client {
@@ -13,3 +16,5 @@ public:
          const QString& n, const QString& p, const QString& t
     ) : nom(n), prenom(p), tel(t) {}
 };
+
+#endif //CLASS_CC

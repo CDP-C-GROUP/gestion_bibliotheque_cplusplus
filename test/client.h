@@ -1,3 +1,6 @@
+#ifndef CLASS_C
+#define CLASS_C
+
 #include <QString>
 
 class client {
@@ -13,3 +16,5 @@ public:
 
         ) :  nom(n), prenom(p), tel(t) {}
 };
+
+#endif //CLASS_C

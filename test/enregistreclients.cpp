@@ -1,3 +1,5 @@
+#ifndef CLASS_CLIENT_CPP_H
+#define CLASS_CLIENT_CPP_H
 
 //nous allons importer l'entête de notre fenêtre d'enregsitrement des clients
 #include "enregistreclients.h"
@@ -116,3 +118,5 @@ void enregistreclients::tableaffichelisteclient(){
      ui->tableViewClient->setModel(modeleTableClient);
 
 }
+
+#endif // CLASS_CLIENT_CPP_H

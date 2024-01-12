@@ -5,6 +5,8 @@
 #include <QWidget>
 #include "QStandardItemModel"
 
+
+
 QT_BEGIN_NAMESPACE
 namespace Ui { class enregistreEmprunts; }
 QT_END_NAMESPACE
@@ -26,10 +28,12 @@ private slots:
 
     void tableaffichelisteEmprunt();
 
+
 private:
     Ui::enregistreEmprunts *ui;
     //nous allons créer le modèle de table de emprunt
     QStandardItemModel *modeleTableEmprunt;
+
 };
 
 

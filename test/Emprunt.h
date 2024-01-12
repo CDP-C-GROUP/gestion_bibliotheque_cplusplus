@@ -1,3 +1,6 @@
+#ifndef CLASS_E
+#define CLASS_E
+
 #include <QString>
 #include "ClientClass.h"
 #include "Livre.h"
@@ -16,3 +19,5 @@ public:
          const Livre& l, const Client& c, const QString& de, const QString& dr
     ) : livre(l), client(c), date_emprunt(de), date_retour(dr) {}
 };
+
+#endif //CLASS_E

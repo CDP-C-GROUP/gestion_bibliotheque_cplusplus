@@ -1,3 +1,5 @@
+#ifndef CLASS_LIVRE_CPP_H
+#define CLASS_LIVRE_CPP_H
 
 //nous allons importer l'entête de notre fenêtre d'enregsitrement des livres
 #include "enregistrelivres.h"
@@ -260,3 +262,4 @@ void enregistrelivres::on_BTNModifier_clicked()
       }
 }
 
+#endif // CLASS_LIVRE_CPP_H

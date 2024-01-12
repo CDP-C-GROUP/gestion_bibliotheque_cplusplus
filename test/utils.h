@@ -1,3 +1,6 @@
+#ifndef UTILS_H
+#define UTILS_H
+
 #include <QMessageBox>
 #include "QString"
 
@@ -14,3 +17,5 @@ static void box_message(QString txt){
     info.exec();
 
 }
+
+#endif // UTILS_H

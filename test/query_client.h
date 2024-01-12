@@ -1,3 +1,6 @@
+#ifndef CLASS_CLIENT_QUERY_H
+#define CLASS_CLIENT_QUERY_H
+
 #include "QSqlDatabase"
 #include <QSqlQuery>
 #include <QSqlError>
@@ -109,3 +112,5 @@ bool delete_client_by_id(int id){
 
     return query.exec();
 }
+
+#endif // CLASS_CLIENT_QUERY_H
