@@ -86,6 +86,10 @@ void enregistrelivres::initialisechampsaisielivre(){
     //nous déclarons ici une date
     QDate date;
 
+    //réactiver le champs code livre
+
+    ui->SAICodeduLivre->setEnabled(true);
+
     //nous affectons aux champs de saisie des valeurs vides
     ui->SAICodeduLivre->setText("");
     ui->SAINomduLivre->setText("");
@@ -224,6 +228,7 @@ void enregistrelivres::afficher_une_ligne_de_la_table_livre(const QModelIndex &i
     ui->BTNModifier->setEnabled(true);
     ui->BTNSupprimer->setEnabled(true);
     ui->BTNValider->setEnabled(false);
+    ui->SAICodeduLivre->setEnabled(false);
 }
 
 void enregistrelivres::on_tableViewLivre_doubleClicked(const QModelIndex &index)
@@ -241,25 +246,40 @@ void enregistrelivres::on_tableViewLivre_clicked(const QModelIndex &index)
 void enregistrelivres::on_BTNModifier_clicked()
 {
 
-    //nous allons donc rechercher la valeur sélectionnée par l'utilisateur dans la table livre et renvoyer ces informtions
-    //nous allons ouvrir la connexion à la base de données
-    if (is_connexion_db()) {
+    Livre livre(
+                ui->SAICodeduLivre->text(), ui->SAINomduLivre->text(),
+                ui->SAIAuteurduLivre->text(), ui->SAIdateParition->text(),
+                ui->SAIQuantiteLivre->text()
+    );
 
-        //nous allons sélectionner tous les livres enregistrer
-        QSqlQuery query("UPDATE livre SET nom = '"+ui->SAINomduLivre->text()+"', auteur = '"+ui->SAIAuteurduLivre->text()+"', date_parution = '"+ui->SAIdateParition->date().DateFormat+"', quantite = '"+ui->SAIQuantiteLivre->value()+"' WHERE code = '"+ui->SAICodeduLivre->text()+"'  ");
+    if (update_livre(livre) == true){
 
-        //nous allons exécuter la requête
-        query.executedQuery();
+        box_message("Le livre sélectionné a été modifier avec succès");
 
-        box_message("Livre modifié avec succès");
-
-        //nous allons raffraîchir la liste des livres après modification
+        //raffraichir la liste des livres
         tableaffichelistelivre();
-
-        //nous allons réinitialiser les champs
-        initialisechampsaisielivre();
-
-      }
+    }
 }
 
 #endif // CLASS_LIVRE_CPP_H
+
+void enregistrelivres::on_BTNSupprimer_clicked()
+{
+    Livre livre(
+                ui->SAICodeduLivre->text(), ui->SAINomduLivre->text(),
+                ui->SAIAuteurduLivre->text(), ui->SAIdateParition->text(),
+                ui->SAIQuantiteLivre->text()
+    );
+
+    if (delete_livre_by_code(livre.code) == true){
+
+        box_message("Le livre sélectionné a été supprimé avec succès");
+
+        //raffraichir la liste des livres
+        tableaffichelistelivre();
+
+        //réinitialiser tous les champs
+        initialisechampsaisielivre();
+    }
+}
+

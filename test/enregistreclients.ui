@@ -91,8 +91,8 @@
   <widget class="QPushButton" name="BTNValider">
    <property name="geometry">
     <rect>
-     <x>451</x>
-     <y>24</y>
+     <x>450</x>
+     <y>50</y>
      <width>74</width>
      <height>23</height>
     </rect>
@@ -104,8 +104,8 @@
   <widget class="QPushButton" name="BTNNouveau">
    <property name="geometry">
     <rect>
-     <x>452</x>
-     <y>54</y>
+     <x>450</x>
+     <y>20</y>
      <width>75</width>
      <height>23</height>
     </rect>

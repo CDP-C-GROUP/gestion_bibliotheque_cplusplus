@@ -33,7 +33,7 @@ HEADERS += \
     utils.h
 
 FORMS += \
-    connexionbasededonnee.ui \
+    authentification.ui \
     dialog.ui \
     enregistreEmprunts.ui \
     enregistreclients.ui \

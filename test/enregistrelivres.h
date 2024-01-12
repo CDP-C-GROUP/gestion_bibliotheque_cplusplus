@@ -42,6 +42,8 @@ private slots:
 
     void on_BTNModifier_clicked();
 
+    void on_BTNSupprimer_clicked();
+
 private:
     Ui::enregistrelivres *ui;
     //nous allons créer le modèle de table de livre

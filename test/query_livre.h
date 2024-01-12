@@ -34,6 +34,30 @@ bool save_livre(Livre livre){
     return false;
 }
 
+bool update_livre(Livre livre){
+    if (is_connexion_db()) {
+        if (livre.code.isEmpty() || livre.nom.isEmpty() || livre.auteur.isEmpty() || livre.date_parution.isEmpty() || livre.get_quantite() < 1) {
+            box_message("Veuillez renseigner tous les champs.");
+            return false;
+        }
+
+        QSqlQuery query;
+        query.prepare("UPDATE livre SET nom = :nom, auteur = :auteur, date_parution = :date_parution, quantite = :quantite WHERE code = :code ");
+        query.bindValue(":code", livre.code);
+        query.bindValue(":nom", livre.nom);
+        query.bindValue(":auteur", livre.auteur);
+        query.bindValue(":date_parution", livre.date_parution);
+        query.bindValue(":quantite", livre.get_quantite());
+
+        if (query.exec()) {
+            return true;
+        } else {
+            // Error handling
+            qDebug() << "Error: " << query.lastError().text();
+        }
+    }
+    return false;
+}
 
 //Livre requests
 QList<Livre> get_all_livres(){
