@@ -8,6 +8,7 @@
 #include <QDebug>
 #include "Emprunt.h"
 #include "connexion_sqlite3.h"
+#include "QList"
 
 
 Livre get_livre_by_id(QList<Livre> livres, int id){
@@ -57,14 +58,17 @@ bool save_emprunt(Emprunt emprunt){
 
 
 QList<Emprunt> get_all_emprunts(){
+
     QList<Emprunt> emprunts;
 
     if (is_connexion_db()) {
+
         QSqlQuery query("SELECT * FROM emprunt");
 
         QList<Livre> livres;
         QList<Client> clients;
         QSqlQuery queryLivre("SELECT * FROM livre");
+
         while (queryLivre.next()) {
             int id = queryLivre.value("id").toString().toInt();
             QString code = queryLivre.value("code").toString();

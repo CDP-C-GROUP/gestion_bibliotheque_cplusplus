@@ -159,25 +159,6 @@ void enregistrelivres::tableaffichelistelivre(){
     //le totale des enregistrements comme nombre de lignes
     modeleTableLivre = new QStandardItemModel(livres.length(),5);
 
-    //nous allons ouvrir la connexion à la base de données
-    /*if (is_connexion_db()) {
-
-        //nous allons sélectionner tous les livres enregistrer
-        QSqlQuery query("SELECT code, nom, auteur, date_parution, quantite FROM livre ORDER BY (id) DESC");
-
-        //tanque nous pouvons lire les lignes de la requête
-        while (query.next()) {
-
-            //nous allons parcourir les colonnes et renvoyer la valeur à l'intersection de la ligne et de la colonne
-            //la ligne représente le row et la colonne représente i
-            for(int i=0;i<5;i++){
-                   QStandardItem *item = new QStandardItem(query.value(i).toString());
-                   modeleTableLivre->setItem(row,i,item);
-            }
-            row++;
-         }
-      }*/
-
     for (Livre livre : livres) {
         modeleTableLivre->setItem(row,0, new QStandardItem(livre.code));
         modeleTableLivre->setItem(row,1, new QStandardItem(livre.nom));

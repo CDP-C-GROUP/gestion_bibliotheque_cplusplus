@@ -19,9 +19,11 @@ public:
          const QString& d, const QString& q
     ) : code(c), nom(n), auteur(a), date_parution(d), quantite(q) {}
 
+
     int get_quantite(){
         return quantite.toInt();
     }
+
 };
 
 #endif // CLASS_LIVRE_H

@@ -10,6 +10,7 @@ CONFIG += c++11
 #DEFINES += QT_DISABLE_DEPRECATED_BEFORE=0x060000    # disables all the APIs deprecated before Qt 6.0.0
 
 SOURCES += \
+    authentification.cpp \
     enregistreEmprunts.cpp \
     enregistreclients.cpp \
     enregistrelivres.cpp \
@@ -20,6 +21,7 @@ HEADERS += \
     ClientClass.h \
     Emprunt.h \
     Livre.h \
+    authentification.h \
     client.h \
     connexion_sqlite3.h \
     connexionmysql.h \
