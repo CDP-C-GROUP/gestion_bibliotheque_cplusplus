@@ -36,6 +36,8 @@ private slots:
 
     void modifier_client();
 
+    void on_BTNSupprimer_clicked();
+
 private:
     Ui::enregistreclients *ui;
     //nous allons créer le modèle de table de client
