@@ -44,6 +44,40 @@ enregistreEmprunts::enregistreEmprunts(QWidget *parent)
 {
     ui->setupUi(this);
 
+    if (is_connexion_db()) {
+        QSqlQuery query("SELECT * FROM livre");
+        while (query.next()) {
+            int id = query.value("id").toString().toInt();
+            QString code = query.value("code").toString();
+            QString nom = query.value("nom").toString();
+            QString auteur = query.value("auteur").toString();
+            QString date_parution = query.value("date_parution").toString();
+            QString quantite = query.value("quantite").toString();
+
+            ui->champNomLivre->addItem(code + " - " + nom, query.value("id").toString());
+
+
+            Livre livre = Livre(code, nom, auteur, date_parution, quantite);
+            livre.id = id;
+            livres.append(livre);
+        }
+
+        QSqlQuery queryClient("SELECT * FROM client");
+        while (queryClient.next()) {
+            int idClient = queryClient.value("id").toString().toInt();
+            QString nom = queryClient.value("nom").toString();
+            QString prenom = queryClient.value("prenom").toString();
+            QString tel = queryClient.value("tel").toString();
+
+            ui->champNomAbonne->addItem(nom + " - " + prenom, queryClient.value("id").toString());
+
+
+            Client client = Client(nom, prenom, tel);
+            client.id = idClient;
+            clients.append(client);
+        }
+
+    }
     QDate date;
     ui->champDateEmprunt->setDate(date.currentDate());
     ui->champDateRetour->setDate(date.currentDate());
