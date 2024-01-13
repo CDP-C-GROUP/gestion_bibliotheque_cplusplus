@@ -31,7 +31,11 @@ private:
     Ui::MainWindow *ui;
     //créer un pointeur sur la tête (.h) de notre fenêtre d'enregistrement des livres
     enregistrelivres *ptrenregistrelivre;
+
+    //créer un pointeur sur la tête (.h) de notre fenêtre d'enregistrement des clients
     enregistreclients *ptrenregistreclient;
+
+    //créer un pointeur sur la tête (.h) de notre fenêtre d'enregistrement des emprunts
     enregistreEmprunts *ptrenregistreemprunt;
 
 };

@@ -5,6 +5,7 @@
 
 class Client {
 public:
+    //déclaration des attributs de notre classe
     int id;
     QString nom;
     QString prenom;

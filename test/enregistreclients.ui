@@ -16,8 +16,8 @@
   <widget class="QTextBrowser" name="infoclient">
    <property name="geometry">
     <rect>
-     <x>531</x>
-     <y>23</y>
+     <x>540</x>
+     <y>20</y>
      <width>201</width>
      <height>111</height>
     </rect>
@@ -27,7 +27,7 @@
    <property name="geometry">
     <rect>
      <x>12</x>
-     <y>24</y>
+     <y>47</y>
      <width>91</width>
      <height>21</height>
     </rect>
@@ -40,7 +40,7 @@
    <property name="geometry">
     <rect>
      <x>101</x>
-     <y>54</y>
+     <y>77</y>
      <width>341</width>
      <height>20</height>
     </rect>
@@ -53,7 +53,7 @@
    <property name="geometry">
     <rect>
      <x>11</x>
-     <y>87</y>
+     <y>110</y>
      <width>71</width>
      <height>16</height>
     </rect>
@@ -66,7 +66,7 @@
    <property name="geometry">
     <rect>
      <x>12</x>
-     <y>53</y>
+     <y>76</y>
      <width>70</width>
      <height>21</height>
     </rect>
@@ -79,7 +79,7 @@
    <property name="geometry">
     <rect>
      <x>101</x>
-     <y>24</y>
+     <y>47</y>
      <width>341</width>
      <height>20</height>
     </rect>
@@ -118,7 +118,7 @@
    <property name="geometry">
     <rect>
      <x>102</x>
-     <y>87</y>
+     <y>110</y>
      <width>340</width>
      <height>20</height>
     </rect>
@@ -130,9 +130,9 @@
   <widget class="QTableView" name="tableViewClient">
    <property name="geometry">
     <rect>
-     <x>60</x>
+     <x>10</x>
      <y>160</y>
-     <width>621</width>
+     <width>721</width>
      <height>211</height>
     </rect>
    </property>
@@ -140,6 +140,64 @@
     <bool>true</bool>
    </property>
   </widget>
+  <widget class="QPushButton" name="BTNSupprimer">
+   <property name="geometry">
+    <rect>
+     <x>450</x>
+     <y>110</y>
+     <width>75</width>
+     <height>23</height>
+    </rect>
+   </property>
+   <property name="text">
+    <string>&amp;Supprimer</string>
+   </property>
+  </widget>
+  <widget class="QPushButton" name="BTNModifier">
+   <property name="geometry">
+    <rect>
+     <x>450</x>
+     <y>80</y>
+     <width>75</width>
+     <height>23</height>
+    </rect>
+   </property>
+   <property name="text">
+    <string>&amp;Modifier</string>
+   </property>
+  </widget>
+  <widget class="QLineEdit" name="SAI_IDClient">
+   <property name="enabled">
+    <bool>false</bool>
+   </property>
+   <property name="geometry">
+    <rect>
+     <x>590</x>
+     <y>60</y>
+     <width>113</width>
+     <height>20</height>
+    </rect>
+   </property>
+   <property name="inputMethodHints">
+    <set>Qt::ImhHiddenText</set>
+   </property>
+   <property name="readOnly">
+    <bool>true</bool>
+   </property>
+  </widget>
+  <zorder>SAI_IDClient</zorder>
+  <zorder>infoclient</zorder>
+  <zorder>labelnomclient</zorder>
+  <zorder>SAIPrenomduClient</zorder>
+  <zorder>labeltel</zorder>
+  <zorder>labelprenomclient</zorder>
+  <zorder>SAINomduClient</zorder>
+  <zorder>BTNValider</zorder>
+  <zorder>BTNNouveau</zorder>
+  <zorder>SAITelephone</zorder>
+  <zorder>tableViewClient</zorder>
+  <zorder>BTNSupprimer</zorder>
+  <zorder>BTNModifier</zorder>
  </widget>
  <resources/>
  <connections/>

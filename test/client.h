@@ -5,6 +5,7 @@
 
 class client {
 public:
+    //déclaration des attributs de notre classe  conforme aux attributs de notre base de données
     QString nom;
     QString prenom;
     QString tel;
@@ -14,7 +15,7 @@ public:
     client(
         const QString& n, const QString& p, const QString& t
 
-        ) :  nom(n), prenom(p), tel(t) {}
+        ) : nom(n), prenom(p), tel(t) {}
 };
 
 #endif //CLASS_C

@@ -26,6 +26,16 @@ private slots:
 
     void tableaffichelisteclient();
 
+    void on_tableViewClient_clicked(const QModelIndex &index);
+
+    void affiche_une_ligne_table_client(const QModelIndex &index);
+
+    void on_BTNModifier_clicked();
+
+    void initialisechampclient();
+
+    void modifier_client();
+
 private:
     Ui::enregistreclients *ui;
     //nous allons créer le modèle de table de client

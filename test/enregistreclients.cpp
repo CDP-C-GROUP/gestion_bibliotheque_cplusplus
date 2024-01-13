@@ -23,6 +23,10 @@ enregistreclients::enregistreclients(QWidget *parent)
     , ui(new Ui::enregistreclients)
 {
     ui->setupUi(this);
+
+    //initialiser les champs onload de l'application
+    enregistreclients::initialisechampclient();
+
     //nous allons afficher la liste des clients
     enregistreclients::tableaffichelisteclient();
 }
@@ -60,20 +64,14 @@ void enregistreclients::on_BTNValider_clicked()
     ui->infoclient->setText(valeursaisie);
 
     //Appel de la fonction Box personnalisée en passant le message
-    box_message(valeursaisie+"\n\nPAR LA GRACE DE PAPA AU CIEL ON VA Y ARRIVER COURAGE !!!");
+    box_message("Client ajouté avec succès");
 
 }
 
 // lorsque l'utilisateur va cliquer sur le bouton nouveau
 void enregistreclients::on_BTNNouveau_clicked()
 {
-
-    //nous affectons aux champs de saisie des valeurs vides
-    ui->SAINomduClient->setText("");
-    ui->SAIPrenomduClient->setText("");
-    ui->SAITelephone->setText("");
-
-
+    initialisechampclient();
 }
 
 
@@ -120,3 +118,99 @@ void enregistreclients::tableaffichelisteclient(){
 }
 
 #endif // CLASS_CLIENT_CPP_H
+
+void enregistreclients::on_tableViewClient_clicked(const QModelIndex &index)
+{
+    //nous appellons la fonction implémenté ici
+    affiche_une_ligne_table_client(index);
+}
+
+//cette fonction que nous avons déclarer dans le .h est implémenté ici
+//elle nous permet d'afficher dans les champs de saisie  les valeurs contenues dans la TableView
+void enregistreclients::affiche_une_ligne_table_client(const QModelIndex &index){
+
+    //nous allons déclarer une variable qui prend la valeur de la cellule sélectionnée
+    QString val;
+    val = ui->tableViewClient->model()->data(index).toString();
+
+    //nous allons donc rechercher la valeur sélectionnée par l'utilisateur dans la table livre et renvoyer ces informtions
+    //nous allons ouvrir la connexion à la base de données
+    if (is_connexion_db()) {
+
+        //nous allons sélectionner tous les livres enregistrer
+        QSqlQuery query("SELECT * FROM client WHERE nom = '"+val+"' or prenom = '"+val+"' or tel = '"+val+"' ");
+
+        //tanque nous pouvons lire les lignes de la requête
+        while (query.next()) {
+            //nous allons renvoyer les informations dans les champs de saisie
+            ui->SAI_IDClient->setText(query.value(0).toString());
+            ui->SAINomduClient->setText(query.value(1).toString());
+            ui->SAIPrenomduClient->setText(query.value(2).toString());
+            ui->SAITelephone->setText(query.value(3).toString());
+         }
+      }
+
+    //nous allons rendre certains bouttons inactifs
+    ui->BTNModifier->setEnabled(true);
+    ui->BTNSupprimer->setEnabled(true);
+    ui->BTNValider->setEnabled(false);
+
+}
+
+
+void enregistreclients::on_BTNModifier_clicked()
+{
+    modifier_client();
+}
+
+void enregistreclients::initialisechampclient(){
+    //nous affectons aux champs de saisie des valeurs vides
+    ui->SAINomduClient->setText("");
+    ui->SAIPrenomduClient->setText("");
+    ui->SAITelephone->setText("");
+    ui->SAINomduClient->setFocus();
+}
+
+void enregistreclients::modifier_client(){
+
+    //créer une instance de la classe client en prenant les valeurs saisies par l'utilisateur
+    Client client(
+                ui->SAINomduClient->text(),
+                ui->SAIPrenomduClient->text(),ui->SAITelephone->text()
+
+    );
+
+    // ici nous appellons la fonction qui permet de faire la modification d'un client que nous avons créer dans
+    // la classe "query_client"
+    if (update_client(client) == true){
+
+        box_message("Le client sélectionné a été modifier avec succès");
+
+        //raffraichir la liste des livres
+        tableaffichelisteclient();
+    }
+}
+
+
+void enregistreclients::on_BTNSupprimer_clicked()
+{
+    //instancié la classe client avec les valeurs saisie par le client
+    Client client(
+                ui->SAINomduClient->text(), ui->SAIPrenomduClient->text(),
+                ui->SAITelephone->text()
+    );
+
+
+    //nous allons appeller qui nous permet de supprimer le client
+    if (delete_client_by_tel(client.tel) == true){
+
+        box_message("Le client sélectionné a été supprimé avec succès");
+
+        //raffraichir la liste des client
+        tableaffichelisteclient();
+
+        //réinitialiser tous les champs en vue d'accueillir un nouvel enregistrement
+        initialisechampclient();
+    }
+}
+
